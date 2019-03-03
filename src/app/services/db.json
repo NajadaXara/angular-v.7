@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "firstName": "Admin",
+      "surname": "surname",
+      "token": "C74D067BC96AFB28EDB526B5646C1A9319FD34879D313D4C6C55D0D4133C4D3F"
+    },
+    {
+      "id": "2",
+      "username": "test",
+      "password": "pass",
+      "firstName": "test",
+      "surname": "test",
+      "token": "1CDA4E66AE6CEDDF495D14FBC95AA8A07720E7A7411BC6B35426BF355064D11D"
+    },
+    {
+      "id": "3",
+      "username": "test1",
+      "password": "pass1",
+      "firstName": "test",
+      "surname": "test",
+      "token": "1CDA4E66AE6CEDDF495D14FBC95AA8A07720E7A7411BC6B35426BF355064D11F"
+    },
+    {
+      "id": "4",
+      "username": "najada",
+      "password": "najada",
+      "firstName": "test",
+      "surname": "test",
+      "authToken": "C74D067BC96AFB28EDB526B5646C1A931900D34879D313D4C6C55D0D4133C4D3F"
+    }
+  ]
+}
