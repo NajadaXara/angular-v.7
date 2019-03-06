@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'leaves', component: LeavesComponent },
+  { path: 'leaves', component: LeavesComponent, canActivate: [AuthGuardService] },
 
   // home
   { path: '**', redirectTo: '' }

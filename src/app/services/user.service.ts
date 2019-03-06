@@ -5,25 +5,26 @@ import { User } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+  private url = 'http://localhost:3001';
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<User[]>('/users');
+    return this.http.get<User[]>(this.url+"/users");
   }
 
   getById(id: number) {
-    return this.http.get('/users/' + id);
+    return this.http.get(this.url+'/users/' + id);
   }
 
   create(user: User) {
-    return this.http.post('/users', user);
+    return this.http.post(this.url+'/users', user);
   }
 
   update(user: User) {
-    return this.http.put('/users/' + user.id, user);
+    return this.http.put(this.url+'/users/' + user.id, user);
   }
 
   delete(id: number) {
-    return this.http.delete(`/users/` + id);
+    return this.http.delete(this.url+`/users/` + id);
   }
 }
