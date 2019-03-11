@@ -1,20 +1,18 @@
 <!-- scss -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" >
-  <div class="navbar-nav" > <!-- *ngIf="currentUser" -->
-    <a class="nav-item nav-link" routerLink="/"></a>
-    <a class="nav-item nav-link" routerLink="/leaves">Leaves</a>
+  <div class="navbar-nav" *ngIf="currentUser">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <!--<a class="nav-item nav-link" routerLink="/leaves">Leaves</a>-->
     <a class="nav-item nav-link" routerLink="/users">Users</a>
-    <!--<a class="nav-item nav-link nav-right" (click)="logout()">Logout</a>-->
-
-    <div class="logged-user" > <!-- *ngIf="currentUser" -->
-      <strong>{{currentUser.username}} </strong>
-      <span>-</span>
-      <span>{{currentUser.role}}</span>
-      <a (click)="logout()">Logout </a>
+    <div class="logged-user" >
+        <strong>{{currentUser?.username}} </strong>
+        <span>-</span>
+        <span>{{currentUser?.role}}</span>
+        <a (click)="logout()">Logout </a>
     </div>
   </div>
 </nav>
 
 
-
+<alert></alert>
 <router-outlet></router-outlet>

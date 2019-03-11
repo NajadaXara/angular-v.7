@@ -8,7 +8,7 @@ import { User } from '../models';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
-  private loginUrl = "http://localhost:3001/users";
+  private loginUrl = "http://localhost:3003/users";
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
@@ -20,19 +20,19 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(this.loginUrl, { username, password })
-      .pipe(map(user => {
-        // login successful if there's a jwt token in the response
-        if (user && user.authToken) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-        }
+  // login(username: string, password: string) {
+  //   return this.http.post<any>(this.loginUrl, { username, password })
+  //     .pipe(map(user => {
+  //       // login successful if there's a jwt token in the response
+  //       if (user && user.authToken) {
+  //         // store user details and jwt token in local storage to keep user logged in between page refreshes
+  //         localStorage.setItem('currentUser', JSON.stringify(user));
+  //         this.currentUserSubject.next(user);
+  //       }
 
-        return user;
-      }));
-  }
+  //       return user;
+  //     }));
+  // }
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

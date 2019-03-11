@@ -16,6 +16,11 @@ import { UsersComponent } from './components/users';
 
 import { SearchFilterPipe } from './search-filter.pipe';
 
+import { AuthGuard } from './guards/index';
+import { AlertService, AuthenticationService, UserService } from './services/index';
+import { AlertComponent } from './directives/index';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,8 @@ import { SearchFilterPipe } from './search-filter.pipe';
     HomeComponent,
     LeavesComponent,
     UsersComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, AuthGuard, AlertService
     ],
   bootstrap: [AppComponent]
 })

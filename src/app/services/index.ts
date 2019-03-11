@@ -3,3 +3,4 @@ export * from './authentication.service';
 export * from './auth-guard.service';
 export * from './token.interceptor';
 export * from './leave.service';
+export * from './alert.service'

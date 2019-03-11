@@ -1,63 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { User } from '../../models';
 
-import { AuthenticationService } from '../../services';
+
+import {AlertService, AuthenticationService, UserService } from '../../services/index';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    templateUrl: 'login.component.html'
 })
+
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
+    model: any = {};
+    loading = false;
+    returnUrl: string;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService,
+        private userService: UserService,
+        private alertService: AlertService
+        ) { }
 
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+    ngOnInit() {
+        // reset login status
+        this.authenticationService.logout();
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
-
-  // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
-
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
+        // get return url from route parameters or default to '/'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
-    this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          this.loading = false;
+    login() {
+        this.loading = true;
+        var _user: any = {};
+        _user.username = this.model.username;
+        _user.password = this.model.password;
+        this.userService.getAll().subscribe(users => {
+            let us = this.checkExistence(users, _user);
+            if(us){
+                let clientWithType = Object.assign(new User(), us)
+                localStorage.setItem('currentUser', JSON.stringify(clientWithType));
+                this.router.navigate([this.returnUrl]);
+            }
+            else{
+                this.alertService.error("Invalid credencials");
+                this.loading = false;
+            }
+            
         });
-  }
+    }
+
+    checkExistence(users,user) {
+        let result = users.filter(
+            user_u => user_u.username === user.username && user_u.password === user.password);
+        if(result){
+            return result[0]
+        }
+        else
+            return null
+    }
 }

@@ -14,19 +14,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   align-items: center;
   font-size: 15px;
   color: #337ab7;
-  span{
-    padding: 5px
-  }
-  a{
-    padding: 10px;
-    color: #337ab7;
-    border-color: #2e6da4;
-    width: 100px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    border: 1px solid
+}
+.logged-user span{
+  padding: 5px
+}
+.logged-user a{
+  padding: 10px;
+  color: #337ab7;
+  border-color: #2e6da4;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: 1px solid
 
-  }
+}
+h2 {
+  padding-top: 20px;
+  text-align: center;
+  color: #0074d9;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-size: 120%;*/
+}
+.alert-danger {
+  max-width: 10%;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
 }

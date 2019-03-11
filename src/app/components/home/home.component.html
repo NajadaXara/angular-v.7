@@ -1,9 +1,13 @@
+<input class="pull-right" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+<p></p>
+<button class="btn btn-primary btn-sm o_list_button_add" type="button" > <!-- (click)="createLeave()" createLeave or open modal? -->
+  Krijo
+</button>
 <div class="table-responsive">
   <table class="table table-condensed table-striped">
     <thead>
     <tr>
-      <th>
-      </th>
+      <th>Nr.</th>
       <th>Emri</th>
       <th>Perdoruesi</th>
       <th>Data e fillimit</th>
@@ -12,12 +16,18 @@
       <th>Tipi</th>
       <th>Lloji i lejes</th>
       <th>Statusi</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let leave of leaves">
-      <td>
-      </td>
+    <tr *ngFor="let leave of leaves | SearchFilter: {name: searchText,
+                                                     user: searchText,
+                                                     start_date: searchText,
+                                                     end_date: searchText,
+                                                     leave_type: searchText,
+                                                     state: searchText,
+                                                     type: searchText};  let i=index;">
+      <td>{{i +1}}</td>
       <td>{{leave.name}}</td>
       <td>{{leave.user}}</td>
       <td>{{leave.start_date}}</td>
@@ -26,6 +36,10 @@
       <td>{{leave.type}}</td>
       <td>{{leave.leave_type}}</td>
       <td>{{leave.state}}</td>
+      <td>
+        <button class="btn btn-sm" type="button" > Hap </button>
+        <button class="btn btn-sm" type="button" (click)="deleteLeave(leave.id)"> Fshij </button>
+      </td>
     </tr>
     </tbody>
   </table>
