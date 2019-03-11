@@ -1,5 +1,50 @@
-<div>
-  <ul>
-    <li *ngFor="let user of users">{{user.identity}}</li>
-  </ul>
+<!--<h4>All Users</h4>-->
+<!--<ul class="users">-->
+  <!--<li *ngFor="let user of users"-->
+      <!--[class.selected]="user === selectedUser"-->
+      <!--(click)="onSelect(user)"> &lt;!&ndash; openUser(user) &ndash;&gt;-->
+    <!--<span class="badge">{{user.id}}</span>-->
+    <!--{{user.identity}}-->
+  <!--</li>-->
+<!--</ul>-->
+
+<!--<div *ngIf="selectedUser">-->
+  <!--<h2>{{selectedUser.username | uppercase}} Details</h2>-->
+  <!--<div><span>id: </span>{{selectedUser.id}}</div>-->
+  <!--<div>-->
+    <!--<label>name:-->
+      <!--<input [(ngModel)]="selectedUser.username" placeholder="name"/>-->
+    <!--</label>-->
+  <!--</div>-->
+<!--</div>-->
+<input class="pull-right" [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+<p></p>
+<button class="btn btn-primary btn-sm o_list_button_add" type="button" > <!-- (click)="createUser(user)" -->
+  Krijo
+</button>
+<p></p>
+<div class="table-responsive">
+  <table class="table table-condensed table-striped">
+    <thead>
+    <tr>
+      <th>Nr.</th>
+      <th>Emri</th>
+      <th>Login</th>
+      <th>Roli</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users | SearchFilter: {identity: searchText, role: searchText};  let i=index;">
+      <td>{{i +1}}</td>
+      <td>{{user.identity}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.role}}</td>
+      <td>
+        <button class="btn btn-sm" type="button" > Hap </button>
+        <button class="btn btn-sm" type="button" (click)="deleteUser(user.id)"> Fshij </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

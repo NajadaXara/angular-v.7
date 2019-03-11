@@ -7,3 +7,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .jumbotron{
   background-color:transparent !important;
 }
+.logged-user{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 15px;
+  color: #337ab7;
+  span{
+    padding: 5px
+  }
+  a{
+    padding: 10px;
+    color: #337ab7;
+    border-color: #2e6da4;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    border: 1px solid
+
+  }
+}

@@ -1,3 +1,32 @@
-<p>
-  home works!
-</p>
+<div class="table-responsive">
+  <table class="table table-condensed table-striped">
+    <thead>
+    <tr>
+      <th>
+      </th>
+      <th>Emri</th>
+      <th>Perdoruesi</th>
+      <th>Data e fillimit</th>
+      <th>Data e perfundimit</th>
+      <th>Kohezgjatja</th>
+      <th>Tipi</th>
+      <th>Lloji i lejes</th>
+      <th>Statusi</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let leave of leaves">
+      <td>
+      </td>
+      <td>{{leave.name}}</td>
+      <td>{{leave.user}}</td>
+      <td>{{leave.start_date}}</td>
+      <td>{{leave.end_date}}</td>
+      <td>{{leave.days}}</td>
+      <td>{{leave.type}}</td>
+      <td>{{leave.leave_type}}</td>
+      <td>{{leave.state}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

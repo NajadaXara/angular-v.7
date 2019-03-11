@@ -14,13 +14,16 @@ import { HomeComponent } from './components/home';
 import { LeavesComponent } from './components/leaves';
 import { UsersComponent } from './components/users';
 
+import { SearchFilterPipe } from './search-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     LeavesComponent,
-    UsersComponent
+    UsersComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,113 @@
 {
   "users": [
     {
-      "username": "najada",
-      "password": "najada",
+      "username": "admin",
+      "password": "admin",
       "admin": true,
       "authToken": "C74D067BC96AFB28EDB526B5646C1A931900D34879D313D4C6C55D0D4133C4D3F",
-      "identity": "Admin Najada",
-      "id": "bccG4GS"
+      "identity": "Administrator",
+      "role": "HR",
+      "id": "1"
+    },
+    {
+      "username": "andrew",
+      "password": "pass12345",
+      "admin": false,
+      "authToken": "C74D067BC96AFB29EDB526B5646C1A931900D34879D313D4C6C55D0D4133C4D3F",
+      "identity": "Andrew Holms",
+      "role": "Manager",
+      "id": "2"
+    },
+    {
+      "username": "igenn",
+      "password": "igenn12345",
+      "admin": false,
+      "authToken": "C74D067BC96BFB29EDB526B5646C1A931900D34879D313D4C6C55D0D4133C4D3F",
+      "identity": "Igenn Rot",
+      "role": "User",
+      "id": "3"
+    },
+    {
+      "username": "anastasia",
+      "password": "anastasia",
+      "admin": false,
+      "authToken": "C74D077BC96AFB29EDB526B5646C1A931900D34879D313D4C6C55D0D4133C4D3F",
+      "identity": "Anastasia Kolz",
+      "role": "User",
+      "id": "4"
+    },
+    {
+      "id": "5ctoQnQ"
+    },
+    {
+      "id": "2rr5y34"
+    }
+  ],
+  "leaves": [
+    {
+      "id": 1,
+      "name": "Alokim Leje",
+      "user": "andrew",
+      "role": "user",
+      "start_date": "",
+      "end_date": "",
+      "days": 20,
+      "year": 2019,
+      "type": "Allocation",
+      "state": "Approved",
+      "leave_type": "Leje Vjetore"
+    },
+    {
+      "id": 2,
+      "name": "Alokim Leje",
+      "user": "anastasia",
+      "role": "user",
+      "start_date": "",
+      "end_date": "",
+      "days": 20,
+      "year": 2019,
+      "type": "Allocation",
+      "state": "Approved",
+      "leave_type": "Leje Vjetore"
+    },
+    {
+      "id": 3,
+      "name": "Alokim Leje",
+      "user": "najada",
+      "role": "user",
+      "start_date": "",
+      "end_date": "",
+      "days": 20,
+      "year": 2019,
+      "type": "Allocation",
+      "state": "Approved",
+      "leave_type": "Leje Vjetore"
+    },
+    {
+      "id": 4,
+      "name": "Kerkese Leje",
+      "user": "najada",
+      "role": "user",
+      "start_date": "",
+      "end_date": "",
+      "days": 5,
+      "year": 2019,
+      "type": "Request",
+      "state": "Waiting Approval",
+      "leave_type": "Leje Vjetore"
+    },
+    {
+      "id": 4,
+      "name": "Kerkese Leje",
+      "user": "igenn",
+      "role": "user",
+      "start_date": "",
+      "end_date": "",
+      "days": 7,
+      "year": 2019,
+      "type": "Request",
+      "state": "Draft",
+      "leave_type": "Leje Vjetore"
     }
   ]
 }
